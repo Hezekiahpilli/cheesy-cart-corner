@@ -1,0 +1,77 @@
+
+import { Drink } from '../types';
+
+export const drinks: Drink[] = [
+  {
+    id: '1',
+    name: 'Coca Cola',
+    description: 'Classic Coca Cola',
+    image: '/placeholder.svg',
+    price: 1.99,
+    size: 'Small (12oz)',
+    available: true,
+  },
+  {
+    id: '2',
+    name: 'Coca Cola',
+    description: 'Classic Coca Cola',
+    image: '/placeholder.svg',
+    price: 2.49,
+    size: 'Medium (20oz)',
+    available: true,
+  },
+  {
+    id: '3',
+    name: 'Coca Cola',
+    description: 'Classic Coca Cola',
+    image: '/placeholder.svg',
+    price: 2.99,
+    size: 'Large (32oz)',
+    available: true,
+  },
+  {
+    id: '4',
+    name: 'Sprite',
+    description: 'Crisp lemon-lime soda',
+    image: '/placeholder.svg',
+    price: 1.99,
+    size: 'Small (12oz)',
+    available: true,
+  },
+  {
+    id: '5',
+    name: 'Sprite',
+    description: 'Crisp lemon-lime soda',
+    image: '/placeholder.svg',
+    price: 2.49,
+    size: 'Medium (20oz)',
+    available: true,
+  },
+  {
+    id: '6',
+    name: 'Sprite',
+    description: 'Crisp lemon-lime soda',
+    image: '/placeholder.svg',
+    price: 2.99,
+    size: 'Large (32oz)',
+    available: true,
+  },
+  {
+    id: '7',
+    name: 'Water',
+    description: 'Bottled water',
+    image: '/placeholder.svg',
+    price: 1.49,
+    size: 'Bottled (16.9oz)',
+    available: true,
+  },
+  {
+    id: '8',
+    name: 'Orange Juice',
+    description: 'Fresh orange juice',
+    image: '/placeholder.svg',
+    price: 2.99,
+    size: 'Regular (16oz)',
+    available: true,
+  }
+];
