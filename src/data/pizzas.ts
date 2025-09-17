@@ -12,7 +12,10 @@ export const pizzas: Pizza[] = [
       medium: 10.99,
       large: 12.99,
     },
-    availableToppings: ['1', '2', '3', '4', '5', '6', '7', '8']
+    availableToppings: ['1', '2', '3', '4', '5', '6', '7', '8'],
+    isVegetarian: true,
+    spiceLevel: 'mild',
+    tags: ['vegetarian', 'classic'],
   },
   {
     id: '2',
@@ -24,7 +27,10 @@ export const pizzas: Pizza[] = [
       medium: 11.99,
       large: 13.99,
     },
-    availableToppings: ['1', '2', '3', '4', '5', '6', '7', '8']
+    availableToppings: ['1', '2', '3', '4', '5', '6', '7', '8'],
+    isVegetarian: false,
+    spiceLevel: 'mild',
+    tags: ['classic'],
   },
   {
     id: '3',
@@ -36,7 +42,10 @@ export const pizzas: Pizza[] = [
       medium: 11.99,
       large: 13.99,
     },
-    availableToppings: ['1', '2', '3', '5', '7', '8']
+    availableToppings: ['1', '2', '3', '5', '7', '8'],
+    isVegetarian: true,
+    spiceLevel: 'mild',
+    tags: ['vegetarian', 'garden-fresh'],
   },
   {
     id: '4',
@@ -48,7 +57,10 @@ export const pizzas: Pizza[] = [
       medium: 12.99,
       large: 14.99,
     },
-    availableToppings: ['1', '2', '3', '4', '5', '6', '7', '8']
+    availableToppings: ['1', '2', '3', '4', '5', '6', '7', '8'],
+    isVegetarian: false,
+    spiceLevel: 'mild',
+    tags: ['sweet-savory'],
   },
   {
     id: '5',
@@ -60,7 +72,10 @@ export const pizzas: Pizza[] = [
       medium: 13.99,
       large: 15.99,
     },
-    availableToppings: ['1', '2', '3', '4', '5', '6', '7', '8']
+    availableToppings: ['1', '2', '3', '4', '5', '6', '7', '8'],
+    isVegetarian: false,
+    spiceLevel: 'medium',
+    tags: ['spicy', 'loaded'],
   },
   {
     id: '6',
@@ -72,6 +87,9 @@ export const pizzas: Pizza[] = [
       medium: 13.99,
       large: 15.99,
     },
-    availableToppings: ['1', '2', '3', '4', '5', '6', '7', '8']
+    availableToppings: ['1', '2', '3', '4', '5', '6', '7', '8'],
+    isVegetarian: false,
+    spiceLevel: 'medium',
+    tags: ['spicy', 'bbq'],
   }
 ];

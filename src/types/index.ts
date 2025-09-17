@@ -12,6 +12,21 @@ export interface Topping {
   available: boolean;
 }
 
+export type SpiceLevel = 'none' | 'mild' | 'medium' | 'hot';
+
+export type DietaryTag =
+  | 'vegetarian'
+  | 'vegan'
+  | 'gluten-free'
+  | 'spicy'
+  | 'classic'
+  | 'garden-fresh'
+  | 'sweet-savory'
+  | 'loaded'
+  | 'bbq'
+  | 'caffeine-free'
+  | 'sugar-free';
+
 export interface Pizza {
   id: string;
   name: string;
@@ -23,6 +38,9 @@ export interface Pizza {
     large: number;
   };
   availableToppings: string[]; // IDs of available toppings
+  tags?: DietaryTag[];
+  spiceLevel?: SpiceLevel;
+  isVegetarian?: boolean;
 }
 
 export interface Drink {
@@ -33,6 +51,7 @@ export interface Drink {
   price: number;
   size: string;
   available: boolean;
+  tags?: DietaryTag[];
 }
 
 export interface CartPizzaItem {

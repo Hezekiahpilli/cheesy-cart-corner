@@ -1,9 +1,11 @@
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Drink } from '@/types';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cartStore';
 import { toast } from 'sonner';
+import { Badge } from '@/components/ui/badge';
+import { getTagBadgeVariant, getTagLabel } from '@/lib/tag-utils';
 
 interface DrinkCardProps {
   drink: Drink;
@@ -12,6 +14,11 @@ interface DrinkCardProps {
 const DrinkCard = ({ drink }: DrinkCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const { addDrinkToCart } = useCartStore();
+
+  const displayTags = useMemo(
+    () => Array.from(new Set(drink.tags ?? [])),
+    [drink]
+  );
 
   const handleAddToCart = () => {
     addDrinkToCart(drink.id, quantity);
@@ -28,6 +35,15 @@ const DrinkCard = ({ drink }: DrinkCardProps) => {
           className="w-full h-full object-cover"
         />
       </div>
+      {displayTags.length > 0 && (
+        <div className="mb-2 flex flex-wrap gap-2">
+          {displayTags.map(tag => (
+            <Badge key={tag} variant={getTagBadgeVariant(tag)}>
+              {getTagLabel(tag)}
+            </Badge>
+          ))}
+        </div>
+      )}
       <h3 className="text-lg font-semibold">{drink.name}</h3>
       <p className="text-gray-600 text-sm">{drink.description}</p>
       <p className="text-gray-500 text-sm mt-1">{drink.size}</p>

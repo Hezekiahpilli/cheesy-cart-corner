@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Pizza, Topping, PizzaSize } from '@/types';
 import { Button } from '@/components/ui/button';
 import {
@@ -21,6 +21,8 @@ import { Label } from '@/components/ui/label';
 import { toppings as allToppings } from '@/data/toppings';
 import { useCartStore } from '@/store/cartStore';
 import { toast } from 'sonner';
+import { Badge } from '@/components/ui/badge';
+import { getTagBadgeVariant, getTagLabel } from '@/lib/tag-utils';
 
 interface PizzaCardProps {
   pizza: Pizza;
@@ -34,9 +36,35 @@ const PizzaCard = ({ pizza }: PizzaCardProps) => {
   
   const { addPizzaToCart } = useCartStore();
   
-  const availableToppings = allToppings.filter(topping => 
+  const availableToppings = allToppings.filter(topping =>
     pizza.availableToppings.includes(topping.id) && topping.available
   );
+
+  const displayTags = useMemo(() => {
+    const tags = new Set<string>(pizza.tags ?? []);
+
+    if (pizza.isVegetarian) {
+      tags.add('vegetarian');
+    }
+
+    if (pizza.spiceLevel === 'medium' || pizza.spiceLevel === 'hot') {
+      tags.add('spicy');
+    }
+
+    return Array.from(tags);
+  }, [pizza]);
+
+  const formatBadgeLabel = (tag: string) => {
+    if (tag === 'spicy') {
+      if (pizza.spiceLevel === 'hot') {
+        return 'Extra Spicy';
+      }
+
+      return 'Spicy';
+    }
+
+    return getTagLabel(tag);
+  };
 
   const handleToppingToggle = (toppingId: string) => {
     setSelectedToppings(prev => 
@@ -82,6 +110,15 @@ const PizzaCard = ({ pizza }: PizzaCardProps) => {
           className="w-full h-full object-cover"
         />
       </div>
+      {displayTags.length > 0 && (
+        <div className="mb-2 flex flex-wrap gap-2">
+          {displayTags.map(tag => (
+            <Badge key={tag} variant={getTagBadgeVariant(tag)}>
+              {formatBadgeLabel(tag)}
+            </Badge>
+          ))}
+        </div>
+      )}
       <h3 className="text-lg font-semibold">{pizza.name}</h3>
       <p className="text-gray-600 text-sm mb-2 flex-1">{pizza.description}</p>
       <div className="flex justify-between items-center mt-auto pt-3">
