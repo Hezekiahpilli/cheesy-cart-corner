@@ -71,3 +71,9 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Upcoming Improvements
+
+- Enhance menu discovery with saved filters, trending picks, and staff-curated collections built on top of the existing search and filtering tools.
+- Introduce scheduled ordering options so guests can reserve pickup or delivery windows for special events.
+- Expand the admin analytics dashboard with product mix insights, repeat customer trends, and low-inventory alerts.
