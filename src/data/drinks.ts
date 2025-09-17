@@ -10,6 +10,7 @@ export const drinks: Drink[] = [
     price: 1.99,
     size: 'Small (12oz)',
     available: true,
+    tags: ['classic', 'vegan'],
   },
   {
     id: '2',
@@ -19,6 +20,7 @@ export const drinks: Drink[] = [
     price: 2.49,
     size: 'Medium (20oz)',
     available: true,
+    tags: ['classic', 'vegan'],
   },
   {
     id: '3',
@@ -28,6 +30,7 @@ export const drinks: Drink[] = [
     price: 2.99,
     size: 'Large (32oz)',
     available: true,
+    tags: ['classic', 'vegan'],
   },
   {
     id: '4',
@@ -37,6 +40,7 @@ export const drinks: Drink[] = [
     price: 1.99,
     size: 'Small (12oz)',
     available: true,
+    tags: ['classic', 'vegan', 'caffeine-free'],
   },
   {
     id: '5',
@@ -46,6 +50,7 @@ export const drinks: Drink[] = [
     price: 2.49,
     size: 'Medium (20oz)',
     available: true,
+    tags: ['classic', 'vegan', 'caffeine-free'],
   },
   {
     id: '6',
@@ -55,6 +60,7 @@ export const drinks: Drink[] = [
     price: 2.99,
     size: 'Large (32oz)',
     available: true,
+    tags: ['classic', 'vegan', 'caffeine-free'],
   },
   {
     id: '7',
@@ -64,6 +70,7 @@ export const drinks: Drink[] = [
     price: 1.49,
     size: 'Bottled (16.9oz)',
     available: true,
+    tags: ['vegan', 'caffeine-free', 'sugar-free'],
   },
   {
     id: '8',
@@ -73,5 +80,6 @@ export const drinks: Drink[] = [
     price: 2.99,
     size: 'Regular (16oz)',
     available: true,
+    tags: ['vegetarian', 'vegan'],
   }
 ];
