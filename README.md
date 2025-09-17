@@ -85,6 +85,12 @@ To connect a domain, navigate to Project > Settings > Domains and click Connect 
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
 
+## Current Capabilities
+
+- Customer ordering experience that lets guests browse pizzas and drinks, filter by preferences, and build customized carts ready for checkout.
+- Checkout flow that captures delivery details, contact information, and payment preferences before routing customers to their order history.
+- Admin tooling with dashboards that surface sales analytics and streamline day-to-day order management for the team.
+
 ## Upcoming Improvements
 
 The following initiatives are on the roadmap and have not shipped yet:
