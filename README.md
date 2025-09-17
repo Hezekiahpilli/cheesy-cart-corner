@@ -71,3 +71,11 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Upcoming Improvements
+
+The following initiatives are on the roadmap and have not shipped yet:
+
+- Harden authentication by wiring the existing route guards to a real backend so accounts, roles, and sessions persist beyond the demo store.
+- Replace the seeded menu, toppings, and drink data with API-driven content to keep offerings in sync with the kitchen.
+- Explore payment provider integration to capture cards securely and reflect payment status updates automatically in orders.
