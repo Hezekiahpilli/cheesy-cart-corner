@@ -1,5 +1,4 @@
 
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '@/store/authStore';
 import { useOrderStore } from '@/store/orderStore';
@@ -43,14 +42,8 @@ const OrderStatus = ({ status }: { status: string }) => {
 
 const Orders = () => {
   const navigate = useNavigate();
-  const { isAuthenticated, user, isAdmin } = useAuthStore();
+  const { user, isAdmin } = useAuthStore();
   const { getUserOrders, getAllOrders } = useOrderStore();
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate('/login');
-    }
-  }, [isAuthenticated, navigate]);
 
   const orders = isAdmin ? getAllOrders() : getUserOrders(user?.id || '');
 

@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -14,6 +14,8 @@ const Login = () => {
   
   const { login } = useAuthStore();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = (location.state as { from?: { pathname?: string } } | undefined)?.from?.pathname ?? '/';
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,7 +32,7 @@ const Login = () => {
 
       if (result.success) {
         toast.success('Login successful');
-        navigate('/');
+        navigate(from, { replace: true });
       } else if (result.error === 'username') {
         toast.error('We couldn\'t find an account with that username');
       } else {
