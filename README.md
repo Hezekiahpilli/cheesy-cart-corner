@@ -1,100 +1,88 @@
-# Welcome to your Lovable project
+# Cheesy Cart Corner
 
-## Project info
+Cheesy Cart Corner is a full-featured pizza ordering experience that showcases menu browsing, customizable pizzas, a persistent shopping cart, and a guided checkout flow. The application is built as a single-page React app and includes authenticated customer areas alongside administrative dashboards for managing orders and curated menu content.
 
-**URL**: https://lovable.dev/projects/34f338ff-580d-4f5e-a50c-41b086205efb
+## Features
 
-## How can I edit this code?
+- **Menu exploration** with featured pizzas, detailed descriptions, imagery, and pricing by size.
+- **Cart management** that captures add-ons, sizes, quantities, and automatically totals the order.
+- **Account experiences** for registration, login, viewing order history, and continuing saved carts.
+- **Checkout workflow** that validates delivery details, payment preferences, and submits an order confirmation.
+- **Admin insights** with dashboards and reports to help staff monitor performance and handle day-to-day operations.
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- [React](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/) powered by [Vite](https://vitejs.dev/).
+- [React Router](https://reactrouter.com/) for client-side routing.
+- [Zustand](https://zustand-demo.pmnd.rs/) for application state management.
+- [TanStack Query](https://tanstack.com/query/latest) for data fetching utilities.
+- [Tailwind CSS](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/) for styling and component primitives.
+- [ESLint](https://eslint.org/) and TypeScript tooling for static analysis.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/34f338ff-580d-4f5e-a50c-41b086205efb) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18 or newer
+- npm (bundled with Node.js)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Clone and Install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+git clone https://github.com/<your-org>/cheesy-cart-corner.git
+cd cheesy-cart-corner
+npm install
+```
 
-Follow these steps:
+### Run the Development Server
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+By default Vite serves the application at `http://localhost:5173`. The dev server supports hot module replacement and will automatically reload when you edit files.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Available Scripts
 
-**Use GitHub Codespaces**
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server. |
+| `npm run build` | Create an optimized production build in `dist/`. |
+| `npm run preview` | Preview the production build locally. |
+| `npm run lint` | Run ESLint across the codebase. |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deployment
 
-## What technologies are used for this project?
+This project builds to a static bundle that can be deployed on any modern hosting provider (e.g., Netlify, Vercel, Render, GitHub Pages). A typical workflow is:
 
-This project is built with:
+1. Build the production assets:
+   ```bash
+   npm run build
+   ```
+2. Upload the contents of the `dist/` directory to your hosting provider or connect the repository for automatic builds.
+3. Configure your host to serve `index.html` for all routes (single-page application fallback) to support client-side routing.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-- TanStack Query (provider set up only; runtime data fetching still handled elsewhere)
+Refer to your provider's documentation for configuring custom domains, environment variables, and build automation.
 
-## How can I deploy this project?
+## Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/34f338ff-580d-4f5e-a50c-41b086205efb) and click on Share -> Publish.
+```
+src/
+├── components/       # Reusable UI components (navigation, forms, dialogs, etc.)
+├── data/             # Seeded menu, toppings, and drinks data
+├── pages/            # Route-level screens (menu, cart, checkout, admin)
+├── store/            # Zustand stores for auth, cart, checkout, and orders
+├── hooks/, lib/, types/  # Shared utilities and type definitions
+└── App.tsx           # Route configuration and providers
+```
 
-## Feature overview
+## Contributing
 
-- **Menu browsing**: Explore pizzas, drinks, and toppings sourced from the seeded data sets, complete with imagery, sizing, and pricing options.
-- **Cart & checkout experience**: Review every item in the cart and confirm contact, delivery, and payment details in a single-page form that validates inputs before the order is placed.
-- **Order tracking**: View previously placed orders and status updates to keep customers informed after checkout.
+1. Fork the repository and create your feature branch.
+2. Commit your changes with clear messages.
+3. Run `npm run lint` (and any other relevant checks).
+4. Open a pull request for review.
 
-## Key files to explore
+---
 
-- **Routing & layout** (`src/App.tsx`, `src/pages`): Configures top-level routes for the public menu, user account areas, and administrative views.
-- **Cart & Checkout** (`src/pages/Cart.tsx`, `src/pages/Checkout.tsx`): Coordinates cart state, snapshotting, and the single-page checkout form submission to create orders.
-- **State management** (`src/store`): Provides Zustand stores that manage authentication, cart contents, checkout snapshots, and orders across the app.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
-
-## Current Capabilities
-
-- Customer ordering experience that lets guests browse pizzas and drinks, filter by preferences, and build customized carts ready for checkout.
-- Checkout flow that captures delivery details, contact information, and payment preferences before routing customers to their order history.
-- Admin tooling with dashboards that surface sales analytics and streamline day-to-day order management for the team.
-
-## Upcoming Improvements
-
-The following initiatives are on the roadmap and have not shipped yet:
-
-- Launch customer-facing order tracking notifications (SMS/email) to keep guests updated in real time.
-- Build an analytics dashboard for staff to review sales trends and inventory signals.
-- Explore payment provider integration to capture cards securely and reflect payment status updates automatically in orders.
+For questions or suggestions, feel free to open an issue or start a discussion.
