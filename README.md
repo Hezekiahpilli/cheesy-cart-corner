@@ -64,6 +64,18 @@ This project is built with:
 
 Simply open [Lovable](https://lovable.dev/projects/34f338ff-580d-4f5e-a50c-41b086205efb) and click on Share -> Publish.
 
+## Feature overview
+
+- **Menu browsing**: Explore pizzas, drinks, and toppings sourced from the seeded data sets, complete with imagery, sizing, and pricing options.
+- **Cart & checkout experience**: Review every item in the cart and confirm contact, delivery, and payment details in a single-page form that validates inputs before the order is placed.
+- **Order tracking**: View previously placed orders and status updates to keep customers informed after checkout.
+
+## Key files to explore
+
+- **Routing & layout** (`src/App.tsx`, `src/pages`): Configures top-level routes for the public menu, user account areas, and administrative views.
+- **Cart & Checkout** (`src/pages/Cart.tsx`, `src/pages/Checkout.tsx`): Coordinates cart state, snapshotting, and the single-page checkout form submission to create orders.
+- **State management** (`src/store`): Provides Zustand stores that manage authentication, cart contents, checkout snapshots, and orders across the app.
+
 ## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
