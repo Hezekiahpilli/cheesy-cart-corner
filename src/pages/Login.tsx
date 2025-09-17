@@ -26,13 +26,15 @@ const Login = () => {
     setIsLoading(true);
     
     try {
-      const success = await login(username, password);
-      
-      if (success) {
+      const result = await login(username, password);
+
+      if (result.success) {
         toast.success('Login successful');
         navigate('/');
+      } else if (result.error === 'username') {
+        toast.error('We couldn\'t find an account with that username');
       } else {
-        toast.error('Invalid username or password');
+        toast.error('Incorrect password. Please try again.');
       }
     } catch (error) {
       toast.error('An error occurred. Please try again.');
@@ -80,18 +82,26 @@ const Login = () => {
           </Button>
         </form>
         
+        <p className="text-center mt-6 text-sm text-gray-600">
+          Forgot your password? Reach out to our team at{' '}
+          <a href="mailto:support@pizzadelight.com" className="text-pizza-600 hover:underline">
+            support@pizzadelight.com
+          </a>{' '}
+          and we\'ll help you securely reset it.
+        </p>
+
         <p className="text-center mt-6">
           Don't have an account?{' '}
           <Link to="/register" className="text-pizza-600 hover:underline">
             Register here
           </Link>
         </p>
-        
+
         <div className="mt-8 pt-6 border-t text-center text-sm text-gray-500">
           <p>Demo accounts:</p>
-          <p className="mt-1">Username: <span className="font-medium">admin</span> (Admin user)</p>
-          <p>Username: <span className="font-medium">customer</span> (Regular user)</p>
-          <p className="mt-2 italic">Any password will work for demo purposes</p>
+          <p className="mt-1">Username: <span className="font-medium">admin</span> (Admin user) &mdash; Password: <span className="font-medium">AdminPass123!</span></p>
+          <p>Username: <span className="font-medium">customer</span> (Regular user) &mdash; Password: <span className="font-medium">CustomerPass123!</span></p>
+          <p className="mt-2 italic">Passwords are securely hashed behind the scenes.</p>
         </div>
       </div>
     </div>
