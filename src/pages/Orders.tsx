@@ -95,6 +95,41 @@ const Orders = () => {
               </div>
             </div>
 
+            <div className="grid gap-4 md:grid-cols-2 border-t pt-4">
+              <div>
+                <h3 className="font-medium mb-1">Delivery Details</h3>
+                <p className="text-sm text-gray-700">
+                  <span className="font-medium">Contact:</span>{' '}
+                  {order.contact.name || 'N/A'}
+                </p>
+                <p className="text-sm text-gray-700">
+                  <span className="font-medium">Phone:</span>{' '}
+                  {order.contact.phone || 'N/A'}
+                </p>
+                <p className="text-sm text-gray-700">
+                  <span className="font-medium">Address:</span>{' '}
+                  {order.delivery.address || 'N/A'}
+                </p>
+                {order.delivery.instructions && (
+                  <p className="text-sm text-gray-700">
+                    <span className="font-medium">Instructions:</span>{' '}
+                    {order.delivery.instructions}
+                  </p>
+                )}
+              </div>
+              <div>
+                <h3 className="font-medium mb-1">Payment</h3>
+                <p className="text-sm text-gray-700 capitalize">
+                  <span className="font-medium">Method:</span>{' '}
+                  {order.payment.method.replace('-', ' ')}
+                </p>
+                <p className="text-sm text-gray-700 capitalize">
+                  <span className="font-medium">Status:</span>{' '}
+                  {order.payment.status ?? 'pending'}
+                </p>
+              </div>
+            </div>
+
             <div className="border-t pt-4">
               <h3 className="font-medium mb-2">Order Items</h3>
               <div className="space-y-3">
