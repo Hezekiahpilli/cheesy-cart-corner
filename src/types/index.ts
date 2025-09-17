@@ -54,6 +54,25 @@ export interface CartItem {
   drink?: CartDrinkItem;
 }
 
+export type PaymentMethod = 'cash' | 'card';
+
+export type PaymentStatus = 'pending' | 'paid' | 'failed';
+
+export interface OrderContactInfo {
+  name: string;
+  phone: string;
+}
+
+export interface OrderDeliveryDetails {
+  address: string;
+  instructions?: string;
+}
+
+export interface OrderPaymentDetails {
+  method: PaymentMethod;
+  status?: PaymentStatus;
+}
+
 export interface User {
   id: string;
   username: string;
@@ -72,4 +91,22 @@ export interface Order {
   total: number;
   status: 'pending' | 'processing' | 'completed' | 'cancelled';
   createdAt: string;
+  contact: OrderContactInfo;
+  delivery: OrderDeliveryDetails;
+  payment: OrderPaymentDetails;
+}
+
+export interface CheckoutSnapshot {
+  items: CartItem[];
+  total: number;
+  createdAt: string;
+}
+
+export interface CreateOrderInput {
+  userId: string;
+  items: CartItem[];
+  total: number;
+  contact: OrderContactInfo;
+  delivery: OrderDeliveryDetails;
+  payment: OrderPaymentDetails;
 }

@@ -14,6 +14,7 @@ import Register from "./pages/Register";
 import Orders from "./pages/Orders";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import Checkout from "./pages/Checkout";
 import RequireAuth from "@/components/routes/RequireAuth";
 import RequireAdmin from "@/components/routes/RequireAdmin";
 
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route element={<RequireAuth />}>
+                <Route path="/checkout" element={<Checkout />} />
                 <Route path="/orders" element={<Orders />} />
               </Route>
               <Route element={<RequireAdmin />}>

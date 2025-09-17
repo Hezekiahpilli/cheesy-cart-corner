@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/cartStore';
 import { useAuthStore } from '@/store/authStore';
-import { useOrderStore } from '@/store/orderStore';
+import { useCheckoutStore } from '@/store/checkoutStore';
 import { pizzas } from '@/data/pizzas';
 import { drinks } from '@/data/drinks';
 import { toppings } from '@/data/toppings';
@@ -11,11 +11,11 @@ import { toast } from 'sonner';
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { items, removeFromCart, updateItemQuantity, clearCart, getTotalPrice } = useCartStore();
-  const { isAuthenticated, user } = useAuthStore();
-  const { placeOrder } = useOrderStore();
+  const { items, removeFromCart, updateItemQuantity, getTotalPrice } = useCartStore();
+  const { isAuthenticated } = useAuthStore();
+  const { setSnapshot } = useCheckoutStore();
 
-  const handlePlaceOrder = () => {
+  const handleCheckout = () => {
     if (!isAuthenticated) {
       toast.error('Please login to place an order');
       navigate('/login');
@@ -27,11 +27,9 @@ const Cart = () => {
       return;
     }
 
-    const orderId = placeOrder(user!.id, items, getTotalPrice());
-    clearCart();
-    
-    toast.success('Order placed successfully!');
-    navigate('/orders');
+    setSnapshot(items, getTotalPrice());
+    toast.info('Review your order and delivery details.');
+    navigate('/checkout');
   };
 
   const getPizzaById = (id: string) => pizzas.find(pizza => pizza.id === id);
@@ -216,9 +214,9 @@ const Cart = () => {
             <div className="mt-6 space-y-3">
               <Button
                 className="w-full bg-pizza-600 hover:bg-pizza-700"
-                onClick={handlePlaceOrder}
+                onClick={handleCheckout}
               >
-                Place Order
+                Checkout
               </Button>
               <Button
                 variant="outline"

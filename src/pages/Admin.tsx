@@ -50,6 +50,12 @@ const Admin = () => {
                     Status
                   </th>
                   <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Delivery
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Payment
+                  </th>
+                  <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Items
                   </th>
                 </tr>
@@ -73,7 +79,7 @@ const Admin = () => {
                       <Select
                         value={order.status}
                         onValueChange={(value) => handleStatusChange(
-                          order.id, 
+                          order.id,
                           value as 'pending' | 'processing' | 'completed' | 'cancelled'
                         )}
                       >
@@ -87,6 +93,24 @@ const Admin = () => {
                           <SelectItem value="cancelled">Cancelled</SelectItem>
                         </SelectContent>
                       </Select>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <div>
+                        <p className="font-medium text-gray-900">{order.contact.name || 'N/A'}</p>
+                        <p>{order.contact.phone || 'N/A'}</p>
+                        <p className="truncate max-w-[200px]" title={order.delivery.address}>
+                          {order.delivery.address || 'N/A'}
+                        </p>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <p className="capitalize">{order.payment.method.replace('-', ' ')}</p>
+                      <p className="capitalize text-gray-400">{(order.payment.status ?? 'pending').replace('-', ' ')}</p>
+                      {order.delivery.instructions && (
+                        <p className="text-gray-400 text-xs truncate max-w-[200px]" title={order.delivery.instructions}>
+                          Notes: {order.delivery.instructions}
+                        </p>
+                      )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {order.items.length} items
