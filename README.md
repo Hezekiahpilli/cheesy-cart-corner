@@ -59,6 +59,7 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- TanStack Query (provider set up only; runtime data fetching still handled elsewhere)
 
 ## How can I deploy this project?
 
