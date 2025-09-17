@@ -57,10 +57,12 @@ export interface CartItem {
 export interface User {
   id: string;
   username: string;
+  passwordHash: string;
   firstName: string;
   lastName: string;
   email: string;
   isAdmin: boolean;
+  phone?: string;
 }
 
 export interface Order {

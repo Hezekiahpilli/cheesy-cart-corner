@@ -31,7 +31,32 @@ const Register = () => {
       toast.error('Passwords do not match');
       return;
     }
-    
+
+    if (password.length < 8) {
+      toast.error('Password must be at least 8 characters long');
+      return;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      toast.error('Password must include at least one uppercase letter');
+      return;
+    }
+
+    if (!/[a-z]/.test(password)) {
+      toast.error('Password must include at least one lowercase letter');
+      return;
+    }
+
+    if (!/\d/.test(password)) {
+      toast.error('Password must include at least one number');
+      return;
+    }
+
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      toast.error('Password must include at least one special character');
+      return;
+    }
+
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
       toast.error('Please enter a valid email address');
