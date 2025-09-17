@@ -76,6 +76,6 @@ Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-trick
 
 The following initiatives are on the roadmap and have not shipped yet:
 
-- Harden authentication by wiring the existing route guards to a real backend so accounts, roles, and sessions persist beyond the demo store.
-- Replace the seeded menu, toppings, and drink data with API-driven content to keep offerings in sync with the kitchen.
+- Launch customer-facing order tracking notifications (SMS/email) to keep guests updated in real time.
+- Build an analytics dashboard for staff to review sales trends and inventory signals.
 - Explore payment provider integration to capture cards securely and reflect payment status updates automatically in orders.
