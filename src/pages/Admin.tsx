@@ -1,7 +1,4 @@
 
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from '@/store/authStore';
 import { useOrderStore } from '@/store/orderStore';
 import {
   Select,
@@ -14,18 +11,9 @@ import { format } from 'date-fns';
 import { toast } from 'sonner';
 
 const Admin = () => {
-  const navigate = useNavigate();
-  const { isAuthenticated, isAdmin } = useAuthStore();
   const { getAllOrders, updateOrderStatus } = useOrderStore();
 
   const orders = getAllOrders();
-
-  useEffect(() => {
-    if (!isAuthenticated || !isAdmin) {
-      toast.error('You do not have access to this page');
-      navigate('/');
-    }
-  }, [isAuthenticated, isAdmin, navigate]);
 
   const handleStatusChange = (orderId: string, status: 'pending' | 'processing' | 'completed' | 'cancelled') => {
     updateOrderStatus(orderId, status);

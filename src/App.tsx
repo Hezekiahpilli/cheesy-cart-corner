@@ -14,6 +14,8 @@ import Register from "./pages/Register";
 import Orders from "./pages/Orders";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import RequireAuth from "@/components/routes/RequireAuth";
+import RequireAdmin from "@/components/routes/RequireAdmin";
 
 const queryClient = new QueryClient();
 
@@ -32,8 +34,12 @@ const App = () => (
               <Route path="/cart" element={<Cart />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/admin" element={<Admin />} />
+              <Route element={<RequireAuth />}>
+                <Route path="/orders" element={<Orders />} />
+              </Route>
+              <Route element={<RequireAdmin />}>
+                <Route path="/admin" element={<Admin />} />
+              </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
